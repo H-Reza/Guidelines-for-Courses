@@ -1,0 +1,461 @@
+LPIC1 JADI
+
+----------------------81
+gpg-agent
+gen-revoke
+gpg --verify name.txt.signed "taeed ye name ba estefade az public key oon shakhs"
+gpg --output name.txt.signed --sign name.txt "emza kardan ye file"
+gpg --out name.decrypt --decrypt name.txt.enc
+gpg --out name.txt.enc --recipient * -a --encrypt name.txt
+gpg --import FILE.PUB.KEY
+gpg --export * > FILE.PUB.KEY
+gpg --gen-key
+gpg --list-keys "list kelidha neshun mide"
+encrypt
+----------------------80
+/etc/ssh/sshd_config "X11Forwarding yes"
+ssh -X IP
+X forward
+ssh -D PORNUMBER IP
+ssh -Nf
+ssh -R 8000:localhost:80 *
+ssh -L 80:localhost:8000 * "-L localhost, port aval mabda port dovom maghsad"
+ssh * COMMAND
+----------------------79
+ssh-agent /bin/bash "ssh-add"
+/etc/ssh/sshd_config "PubkeyAuthentication yes"
+~/.ssh/authorized_keys
+ssh-copy-id *
+ssh-keygen -t "switch noe certificate"
+/home/USER/.ssh/id_rsa.pub "certificate public"
+/home/USER/.ssh/id_rsa "certificate private"
+ssh-keygen -R * "pak kardan ye certificate"
+.ssh/known_hosts
+----------------------78
+service --status-all
+systemctl status
+ldd *
+/etc/host.deny
+/etc/host.allow
+/etc/xinet.d
+/etc/nologin "age in file eijad konim hich kas nemitune be system login kone bejoz root"
+/etc/passwd
+----------------------77
+nmap -O * "os peida mikone"
+nmpa -p *-* * "moshakhas kardan port"
+nmap * "check kardan port haye baz"
+ss -tulpn
+fuser
+lsof
+ss -tuna
+netstat -tuna
+netstat -na "conection ha"
+----------------------76
+/etc/security/limits.conf "mahdudiat tedade login"
+ulimit -a
+chage -l USERNAME
+passwd -S
+/var/log/btmp "last azinja khunde mishe"
+last | less
+who
+w
+visudo "tanzimate sudoers anjam mide"
+/etc/sudoers "tanzimate sudoers neshun mide"
+sudo su
+----------------------75
+getent
+nsswitch
+/etc/nsswitch.conf
+ping6 google.com
+host google.com "command"
+dig *
+/etc/resolv.conf
+/etc/hosts
+----------------------74
+tcpflow -c port * "etellate connection ru portceho "
+dig
+nc -l * "har conncetion ke ru port * baz beshe neshun mide"
+ss -tulpn "listening"
+ss "connection ha"
+netstat -na "listening"
+netstat -nr
+----------------------73
+traceroute
+ip route add default via *
+ip route add * via *
+ip route
+ping * -i * "fasele zamani beine ping"
+ip route
+----------------------72
+/etc/nsswitch.conf "olaviate search"
+cat /etc/hosts "ekhtesas esm be IP"
+hostnamect;
+cat /etc/hostname
+hostname set-hostname * "avaz kardan hostname"
+hostnamectl
+----------------------71
+nmcli "network manager"
+device
+ip route show "routing"
+cat /etc/network/interfaces "shabake ha, default gateway"
+ifconfig -a
+ifconfig ens down
+ifconfig
+ip link show
+NIC (Network Card)
+default route
+----------------------70
+IPV6
+less /etc/services "namayesh portha"
+TCP, UDP, ICMP, PORT
+----------------------69
+subnetting
+----------------------68
+/etc/services "IANA ports"
+----------------------67(66)
+.foward "sakhte file ba in esm, adress email dakhelesh minevisi ta emailha forward she be in adress"
+mailq "safe emailha"
+d "pak kardan" n "next mail" q "khoruj"
+mail useradress "ersal email be kasi" ba CONTROL+D kharej mishe
+mail "check email"
+cat /etc/aliases "har email be ki ersal she"
+sendmail, exim, postfix, qmail
+----------------------66(67)
+cups-bsd "package dasturate kamel cups"
+/etc/cups/cupsd.conf localhost:631
+cups "print migire"
+----------------------65
+mount log to another directory
+systemd-cat
+systemctl status
+/etc/systemd/journald.conf
+journalctl -e -u ssh "mire az akhar neshun mide, faghat unit ssh"
+----------------------64
+logger "ye message be log mifreste" ba CONTROL+D baste mishe
+klogd "log binary"
+/etc/rsyslog.conf
+----------------------63
+lastb "tamame error haye eshtebah" harki say karde be system login kone
+last "log login"
+/var/log/messages
+/var/log/kern.log
+/var/log/debug
+/var/log/syslog
+/var/log/auth.log
+logrotate
+dmesg | less "log az lahze ejra"
+/var/log
+zless ,zcat "bedune unarchiv kardan file baz mikone"
+grep, less, tail -f,
+----------------------62
+ntpdate
+----------------------61
+ls -ltrh
+hwclock -u -w "be halate default bermigardune"
+chrony
+hwclock "namayesh saate fiziki system"
+----------------------60
+iconv
+UTF-8
+cat /etc/locale.conf
+dpkg-reconfigure locales "wizard taghirate zabani"
+locale "check kardan vaziate zabani"
+ls /etc/localtime -ltrh
+tzselect "wizard tanzime zaman"
+time ls "baraye sanjidan zamane run shodan 'ls' dastur"
+cal, date, timedatectl
+----------------------59
+systemd-run
+journalctl "khoruji timer ha"
+systemctl list-timers
+monotonic
+real-time timer "dar zamane daghighi run mishe"
+systemd
+/etc/cron.allow /etc/cron.deny
+teatime "saate 4 bad az zohr"
+at
+cd cron. "script copy mishe" ba ls list neshun mide"
+cd cron.hourly/ "saati yebar run mikone"
+cd cron.daily/ "roozi yebar run mikone"
+cd cron.monthly/ "mohiane run mikone"
+cd cron.weekly/ "haftegi run mikone"
+crontab -e "edit crontab"
+crontab -l "list ha"
+----------------------58
+getent
+id USER
+/etc/group "vaziate group ha"
+chage -l USER "vaziate password user"
+chage USER "taghire properties password ha"
+/etc/shadow
+/etc/passwd
+----------------------57
+adduser * "raveshe jadid tar baraye ezafe kardan user"
+groupadd
+groupdel
+useradd *
+userdel * -r "pak kardan directory"
+usermod * "taghirat user" -L "lock" -U "unlock" -aG "add group"
+sudo passwd USER "avaz kardan password ye user dige"
+passwd "avaz kardan password"
+----------------------56
+accessX
+----------------------55
+ssh, VNC, spice, RDP
+XFCE "low usage"
+KDE plasma "more customize"
+GNOME "simple graphical desktop"
+----------------------54
+wayland "new one display manager"
+xauth
+xhost
+xorg
+X11
+----------------------53
+backup.sh || echo "error" | mail -s 'backup error' emailadress
+mail user@mail.com "ferestadan email"
+seq
+for
+read * "vorudi az user migire"
+-x filename "check mikone file vojud dare va ejraie hast ya na"
+-f filename "check mikone file vojud dare ya na"
+----------------------52
+FILES=$(ls) "khoruji ls mireze tu FILES"
+command || command2 "har marhale dorost anjam she soraghe badi nemire" OR
+command && command2 "agar dastur aval dorost bashe dasture dovom ejra mikone" AND
+----------------------51
+.bash_logout
+/etc/skel .bash_logut
+/etc/profile
+----------------------50
+function () {**********}
+alias *=# "meghdar dehi ye motagheir"
+alias "tamame moteghayer haye meghdar dade shode"
+source
+export
+unset "motagheyr hazf mikone"
+set "tanzimat va moteghayerha bash"
+BASH
+env "kholaseie az system va connection jari"
+----------------------49
+locate "updatedb" 24 saat yebar update mishe /etc/updatedb.conf
+find
+which, type, whereis
+/root "home directory root"
+/home "home user ha"
+/var "logs"
+/usr "user binary data"
+/tmp "temporary file"
+/srv "file haye serveri"
+/sbin "system binary"
+/opt "add-on"
+/mnt "mont filesystem"
+/media "removable media"
+/lib "libraries va kernel ha"
+/etc "tanzimat"
+/dev "device ha"
+/boot "filhaye boot shodan system"
+/bin "dastura injan"
+----------------------48
+find / -type l
+unlink newname
+ln -s filename newname "sakhte soft link"
+ln filename newname "sakhte hard link"
+ls --i "show inod"
+----------------------47
+unmask
+chgrp username filename "avaz akrdan group file"
+usermod -aG sudo username "be goup sudo ezafe mishe"
+chown root:root filename "avaz kardan owner file"
+chmod 775 filename
+chmode u-x,g-x,o-x filename
+chmode u+rwx,g+rwx,o+rx filename
+chmode +rwx filename
+chmod +x filename
+----------------------46
+cat /etc/group
+id "user ID va group"
+chmod
+----------------------45
+----------------------44
+----------------------43
+swapoff "unmount swap"
+swapon
+unmount -l
+mount -t /device dir
+----------------------42
+xfs_fsr "optimize hard, ruye filesystem haye mount shode kar mikone"
+xfs_info
+tune2fs -l "vaziate disk ba joziate ziad"
+fsck -A "check file systems"
+----------------------41
+du /directory -hs
+df "disk free" du "disk usage"
+----------------------40
+mkswap * "format be swap"
+blkid * "block ID neshun mide"
+ls /sbin/mkfs*
+mkfs -t ext4 /dev/sda1 "format type"
+swap, ext4, btrfs "format type"
+----------------------39
+parted "partition bandi" gparted "grafical "
+v "verify" w "write"
+fdisk "BIOS" gdisk "UEFI"
+lsblk "hard"
+----------------------38
+i "insert" r "replace" ESC "command" \ "search"
+vi
+----------------------37
+fgrep "sensitive nist"
+grep -c -f -l -r
+| "OR"
+regex101.com
+regex
+. "hame charachter" ^ "aval khat"
+----------------------36
+nice tar cf /tmp/backup /
+renice -n * PIDNumber
+nice -20 olaviat balatari dare
+----------------------35
+tmux ls
+CTRL B + % "safe jadid"
+---tmux
+CTRL A + N "new windows"
+CTRL A + | "eijad ye safe" CTRL A + Tab "raftan be screen jadid" CTRL A + C "crete shell"
+tmux
+screen "barname dar backgroung negh midare" CTRL A+ D
+screen -ls
+screen -r * "retach be yek screen"
+----------------------34
+watch -n -d "har chand sanye ye bar beruz resani kone, faghat ekhtelaf neshun bede"
+df -h
+watch * "har 2 sanye ye bar dastur ejra mikone"
+uptime -p
+free -h "free ram"
+top
+pgrep
+ps | grep
+ps -aux "process"
+pkill *
+----------------------33
+nohup.out "list barname ha dar nohup"
+xcalc "mashin hesab"
+nohup
+fg %2
+jobs -l "ba process ID neshun mide"
+&
+CONTROL + L "safe pak mikone"
+bg
+fg
+xclock -update 1 "saate analog neshun mide"
+xeyes "mouse dobale mikone"
+----------------------32
+tee "hamzanam khoruji mireze tu file va tu safe neshun mide"
+ls | tee filename
+xargs -I -L
+ls -1 | wc -1 ""
+----------------------31
+ls * * > file 2>/dev/null "khoruji mireize tu file, error mide be dev null"
+* > * "rikhtan etelaat"
+* >> * "ezafe mikone be edamash"
+----------------------30
+cpio
+tar xf newfile.tar "extract"
+tar cfzv newfile.tar * * * * * * "archive, zip"
+gunzip
+gzip filename
+----------------------29
+find
+dd if=ubuntu.iso of=/dev/sdc bs=2048 "copy file ubuntu ru "
+file * "neshun mide chi hast "
+touch -d time filename "avaz kardan zamane ye file"
+touch *
+ ----------------------28
+git stash "mire be folder asli GIT"
+rm -b "backup az overwrite migire"
+[ABC] "A,B,C" [a-k] "a,b,c,...,k" [0-9a-z] "tamame adad va horuf" [!x] "x nabashe"
+ ----------------------27
+sha512sum vorude data CONTROL+D
+sha512sum filename "hash md5sum, sha256sum, sha512sum"
+sha512sum filename filename1 filename2
+wc filename "tedade kalame, tedade khat, tedad byte"
+ ----------------------26
+sed 's/*/#/g' filename "jabeja mikone avalio ba dovomi"
+tr '**' '##' filename "jabeja mikone avalio ba dovomi"
+uniq -c -d filename "mishmure tedade tekrar shodeha mige, tekraryharo neshun mide"
+uniq filename "tekrari haro hazf mikone"
+sort -n -r filename "sort bar asase adad, sort barax mikone"
+sort filename "sort mikone dakhele file"
+cut -f* -d* filename "joda mikone tedad sotun dadeshode, ba neshuni ke gofte shode"
+tail -f * "neshun dadan file be surate real time"
+head filename "faghat 10 khate aval mide"
+tail filename "faghat 10 khate akhar mide"
+cat testfile* > filename "rikhtan chand file dakhele yek file"
+split -b * "ba hajm, file joda mikone"
+split -n tedad testfile filejadid "taghsim file be tedade delkhah"
+ ----------------------24
+od * "binary neshun mide"
+less * "safe safe neshun mide"
+/* "search mikone dar less"
+zcat * "bedune unzip file .gz beza mikone"
+cat -n * * "cat ba shomare khat, chanta file"
+ls | grep "mohtava beja ke shoden bede mirize tu file" streams
+ ----------------------23
+CTRL+D "disconnect"
+CTRL+R "search command"
+export *=* "baraye save kardan ye moteghayer"
+unset PS1 "khali kardan promt"
+whereis * "neshun mide dastur kojast"
+env
+ ----------------------22
+uname -a "moshakhasat narmafzari sakht afazari "
+type * "source dastur neshun mide"
+readlink /bin/sh "general shell"
+echo $SHELL
+ ----------------------21
+less /proc/cpuinfo "moshakhasat CPU"
+lscpu
+----------------------20
+YAST ZYPPER
+rpm -q --all
+yum histoy
+\* "tu man donable kalameie khas gashtan"
+yum list
+yum install emacs
+/etc/yum.conf
+/etc/yum.repos.d/
+----------------19
+apt info tzdata "etelaate package"
+dpkg reconfigure tzdata "reconfigure "
+apt install -f "decency lazem nasb mikone"
+dpkg -i -C -I * "nasb va upgrade, peida kardan package haye kharab nasb shode, etelaate package"
+apt dist-upgrade
+apt search vlc
+apt autoremove
+apt install --download-only "faghat download mikone"
+apt install -s "simulate kardan nasb"
+apt install tmux
+-----------------18/102.4
+/var/cache/apt. "list cache apt update"
+:q! "save dar vim"
+cd apt
+/etc/apt/sources.list
+-------------------17
+file * "mige har file chye"
+-p "print"
+-V "version" -v "mige chikar dare mikone"
+locate ""
+ldd
+ldconfig "Library config kardan " /etc/ld.so.cache
+ls tree
+top "vaziat system neshun mide"
+runlevel
+man ...(shutdown)
+wall. "peigham be user ha"
+who -t. "user ke login"
+/etc/motd "peigham baed az login"
+sudo parted /dev/sda p
+gparted "partition bandi grafic"
+free "hafeze khali"
+swpon -h "swap az koja miad"
+zramctl
